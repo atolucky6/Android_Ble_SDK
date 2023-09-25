@@ -140,11 +140,11 @@ public class OriginalDataLogActivity extends Activity implements View.OnClickLis
 
             @Override
             public void onOriginHalfHourDataChange(OriginHalfHourData originHalfHourDataList) {
-                String message = "健康数据[30分钟]-返回:" + originHalfHourDataList.toString();
+                String message = "Health data [30 minutes] - return:" + originHalfHourDataList.toString();
                 Logger.t(TAG).i(message);
-                Logger.t(TAG).i("健康数据[30分钟]-返回:30分钟的心率数据 size = " + originHalfHourDataList.getHalfHourRateDatas().size());
-                Logger.t(TAG).i("健康数据[30分钟]-返回:30分钟的血压数据 size = " + originHalfHourDataList.getHalfHourBps().size());
-                Logger.t(TAG).i("健康数据[30分钟]-返回:30分钟的运动数据 size = " + originHalfHourDataList.getHalfHourSportDatas().size());
+                Logger.t(TAG).i("Health data [30 minutes] - return:30分钟的心率数据 size = " + originHalfHourDataList.getHalfHourRateDatas().size());
+                Logger.t(TAG).i("Health data [30 minutes] - return:30分钟的血压数据 size = " + originHalfHourDataList.getHalfHourBps().size());
+                Logger.t(TAG).i("Health data [30 minutes] - return:30分钟的运动数据 size = " + originHalfHourDataList.getHalfHourSportDatas().size());
             }
 
             @Override
@@ -167,20 +167,20 @@ public class OriginalDataLogActivity extends Activity implements View.OnClickLis
 
             @Override
             public void onReadOriginProgress(float progress) {
-//                String message = "onReadOriginProgress 健康数据[5分钟]-读取进度:" + progress;
+//                String message = "onReadOriginProgress Health data [5 minutes] - reading progress:" + progress;
 //                Logger.t(TAG).i(message);
             }
 
             @Override
             public void onReadOriginProgressDetail(int day, String date, int allPackage, int currentPackage) {
-//                String message = "onReadOriginProgressDetail 健康数据[5分钟]-读取进度:currentPackage=" + currentPackage + ",allPackage=" + allPackage + ",dates=" + date + ",day=" + day;
+//                String message = "onReadOriginProgressDetail Health data [5 minutes] - reading progress:currentPackage=" + currentPackage + ",allPackage=" + allPackage + ",dates=" + date + ",day=" + day;
 //                Logger.t(TAG).i(message);
             }
 
 
             @Override
             public void onReadOriginComplete() {
-                String message = "健康数据-读取结束";
+                String message = "Health data - end of reading";
                 Logger.t(TAG).i(message);
                 isReadFinished = true;
                 mProgressBar.setVisibility(View.GONE);

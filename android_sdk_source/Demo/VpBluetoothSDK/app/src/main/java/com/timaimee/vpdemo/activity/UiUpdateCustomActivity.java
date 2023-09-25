@@ -97,8 +97,8 @@ public class UiUpdateCustomActivity extends Activity {
             mUiUpdateUtil.init(this);
             mUiUpdateUtil.init(this);
         } else {
-            mUiCustomSupportTV.setText("1.不支持自定义表盘");
-            Toast.makeText(mContext, "不支持自定义表盘", Toast.LENGTH_LONG).show();
+            mUiCustomSupportTV.setText("1.Does not support custom watch faces");
+            Toast.makeText(mContext, "Does not support custom watch faces", Toast.LENGTH_LONG).show();
         }
     }
 

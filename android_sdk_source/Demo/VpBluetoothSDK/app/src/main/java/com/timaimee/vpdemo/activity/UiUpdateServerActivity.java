@@ -83,8 +83,8 @@ public class UiUpdateServerActivity extends Activity {
         if (UiUpdateUtil.getInstance().isSupportChangeServerUi()) {
             mUiServerSupportTV.setText("1.支持服务器表盘");
         } else {
-            mUiServerSupportTV.setText("1.不支持服务器表盘");
-            Toast.makeText(mContext, "不支持服务器表盘", Toast.LENGTH_LONG).show();
+            mUiServerSupportTV.setText("1.Server dials are not supported");
+            Toast.makeText(mContext, "Server dials are not supported", Toast.LENGTH_LONG).show();
         }
     }
 

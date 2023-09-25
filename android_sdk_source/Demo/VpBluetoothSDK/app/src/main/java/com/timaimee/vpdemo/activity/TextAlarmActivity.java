@@ -58,9 +58,9 @@ public class TextAlarmActivity extends Activity implements TextAlarmAdapter.OnTe
                 VPOperateManager.getInstance().addTextAlarm(writeResponse, new ITextAlarmDataListener() {
                     @Override
                     public void onAlarmDataChangeListListener(TextAlarmData textAlarmData) {
-                        Logger.t(TAG).e("添加闹钟 --》" + textAlarmData.toString());
+                        Logger.t(TAG).e("Add alarm --》" + textAlarmData.toString());
                         EMultiAlarmOprate OPT = textAlarmData.getOprate();
-                        showMsg("添加闹钟 --》" + (textAlarmData.getOprate() == EMultiAlarmOprate.SETTING_SUCCESS ? "成功" : "失败"));
+                        showMsg("Add alarm --》" + (textAlarmData.getOprate() == EMultiAlarmOprate.SETTING_SUCCESS ? "成功" : "失败"));
                         if (OPT == EMultiAlarmOprate.ALARM_FULL) {
                             showMsg("闹钟已满（最多添加十个）");
                         } else if (OPT == EMultiAlarmOprate.SETTING_SUCCESS) {

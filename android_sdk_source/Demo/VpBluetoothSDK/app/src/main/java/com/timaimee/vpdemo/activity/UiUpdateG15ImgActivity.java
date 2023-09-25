@@ -68,7 +68,7 @@ public class UiUpdateG15ImgActivity extends Activity implements View.OnClickList
     }
 
     /**
-     * 方便测试我们都是用纯色的图片
+     * 方便test我们都是用纯色的图片
      * 建议使用者定义的图片为黑色背景叠加白色二维码的图片
      * @param color
      * @return

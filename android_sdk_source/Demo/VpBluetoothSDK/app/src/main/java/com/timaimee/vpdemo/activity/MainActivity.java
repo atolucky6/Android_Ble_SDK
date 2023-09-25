@@ -356,7 +356,7 @@ public class MainActivity extends Activity implements SwipeRefreshLayout.OnRefre
 //                            int deviceNumber = pwdData.getDeviceNumber();
 //                            String deviceVersion = pwdData.getDeviceVersion();
 //                            String deviceTestVersion = pwdData.getDeviceTestVersion();
-//                            Logger.t(TAG).e("设备号：" + deviceNumber + ",版本号：" + deviceVersion + ",\n测试版本号：" + deviceTestVersion);
+//                            Logger.t(TAG).e("Device No：" + deviceNumber + ",version number：" + deviceVersion + ",\ntestversion number：" + deviceTestVersion);
 //                        }
 //                    }, new IDeviceFuctionDataListener() {
 //                        @Override

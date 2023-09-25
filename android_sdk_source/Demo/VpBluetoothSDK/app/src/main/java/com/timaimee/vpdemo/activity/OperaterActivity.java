@@ -471,7 +471,7 @@ public class OperaterActivity extends Activity implements AdapterView.OnItemClic
                 intent.putExtra("deviceTestVersion", deviceTestVersion);
                 startActivity(intent);
             } else {
-                Toast.makeText(mContext, "不支持自定义表盘", Toast.LENGTH_LONG).show();
+                Toast.makeText(mContext, "Does not support custom watch faces", Toast.LENGTH_LONG).show();
             }
         } else if (oprater.equals(UI_UPDATE_CUSTOM)) {
 
@@ -484,7 +484,7 @@ public class OperaterActivity extends Activity implements AdapterView.OnItemClic
                 intent.putExtra("deviceTestVersion", deviceTestVersion);
                 startActivity(intent);
             } else {
-                Toast.makeText(mContext, "不支持自定义表盘", Toast.LENGTH_LONG).show();
+                Toast.makeText(mContext, "Does not support custom watch faces", Toast.LENGTH_LONG).show();
             }
 
         } else if (oprater.equals(SYNC_MUSIC_INFO_PLAY)) {
@@ -496,7 +496,7 @@ public class OperaterActivity extends Activity implements AdapterView.OnItemClic
         } else if (oprater.equals(UI_UPDATE_SERVER)) {
 
             if (VPOperateManager.getInstance().isJLDevice()) {
-                Toast.makeText(mContext, "不支持服务器表盘", Toast.LENGTH_LONG).show();
+                Toast.makeText(mContext, "Server dials are not supported", Toast.LENGTH_LONG).show();
                 return;
             }
 
@@ -509,7 +509,7 @@ public class OperaterActivity extends Activity implements AdapterView.OnItemClic
                 intent.putExtra("deviceTestVersion", deviceTestVersion);
                 startActivity(intent);
             } else {
-                Toast.makeText(mContext, "不支持服务器表盘", Toast.LENGTH_LONG).show();
+                Toast.makeText(mContext, "Server dials are not supported", Toast.LENGTH_LONG).show();
             }
 
         } else if (oprater.equals(UI_UPDATE_G15IMG)) {
@@ -521,7 +521,7 @@ public class OperaterActivity extends Activity implements AdapterView.OnItemClic
                 intent.putExtra("deviceTestVersion", deviceTestVersion);
                 startActivity(intent);
             } else {
-                Toast.makeText(mContext, "不支持大数据传输", Toast.LENGTH_LONG).show();
+                Toast.makeText(mContext, "Does not support big data transmission", Toast.LENGTH_LONG).show();
             }
         } else if (oprater.equals(WEATHER_SETTING_STATUEINFO_ON)) {
             WeatherStatusSetting weatherStatusSetting = new WeatherStatusSetting(0, true, EWeatherType.C);
@@ -607,7 +607,7 @@ public class OperaterActivity extends Activity implements AdapterView.OnItemClic
             Logger.t(TAG).i("HEART_DETECT_STOP");
             VPOperateManager.getInstance().stopDetectHeart(writeResponse);
         } else if (oprater.equals(BP_DETECT_START)) {
-            tv1.setText(BP_DETECT_START + ",等待50s...");
+            tv1.setText(BP_DETECT_START + ",wait50s...");
             VPOperateManager.getInstance().startDetectBP(writeResponse, new IBPDetectDataListener() {
                 @Override
                 public void onDataChange(BpData bpData) {
@@ -682,7 +682,7 @@ public class OperaterActivity extends Activity implements AdapterView.OnItemClic
                     deviceNumber = pwdData.getDeviceNumber();
                     deviceVersion = pwdData.getDeviceVersion();
                     deviceTestVersion = pwdData.getDeviceTestVersion();
-                    titleBleInfo.setText("设备号：" + deviceNumber + ",版本号：" + deviceVersion + ",\n测试版本号：" + deviceTestVersion);
+                    titleBleInfo.setText("Device No：" + deviceNumber + ",version number：" + deviceVersion + ",\ntestversion number：" + deviceTestVersion);
                 }
             }, new IDeviceFuctionDataListener() {
                 @Override
@@ -746,7 +746,7 @@ public class OperaterActivity extends Activity implements AdapterView.OnItemClic
             VPOperateManager.getInstance().syncPersonInfo(writeResponse, new IPersonInfoDataListener() {
                 @Override
                 public void OnPersoninfoDataChange(EOprateStauts EOprateStauts) {
-                    String message = "同步个人信息:\n" + EOprateStauts.toString();
+                    String message = "Sync personal information:\n" + EOprateStauts.toString();
                     Logger.t(TAG).i(message);
                     sendMsg(message, 1);
                 }
@@ -783,7 +783,7 @@ public class OperaterActivity extends Activity implements AdapterView.OnItemClic
             VPOperateManager.getInstance().settingAlarm(writeResponse, new IAlarmDataListener() {
                 @Override
                 public void onAlarmDataChangeListener(AlarmData alarmData) {
-                    String message = "设置闹钟:\n" + alarmData.toString();
+                    String message = "Set alarm:\n" + alarmData.toString();
                     Logger.t(TAG).i(message);
                     sendMsg(message, 1);
                 }
@@ -792,7 +792,7 @@ public class OperaterActivity extends Activity implements AdapterView.OnItemClic
             VPOperateManager.getInstance().readAlarm(writeResponse, new IAlarmDataListener() {
                 @Override
                 public void onAlarmDataChangeListener(AlarmData alarmData) {
-                    String message = "读取闹钟:\n" + alarmData.toString();
+                    String message = "Read alarm clock:\n" + alarmData.toString();
                     Logger.t(TAG).i(message);
                     sendMsg(message, 1);
                 }
@@ -801,7 +801,7 @@ public class OperaterActivity extends Activity implements AdapterView.OnItemClic
             VPOperateManager.getInstance().readAlarm2(writeResponse, new IAlarm2DataListListener() {
                 @Override
                 public void onAlarmDataChangeListListener(AlarmData2 alarmData2) {
-                    String message = "读取闹钟[新版]:\n" + alarmData2.toString();
+                    String message = "Read alarm clock[New version]:\n" + alarmData2.toString();
                     Logger.t(TAG).i(message);
                     sendMsg(message, 1);
                 }
@@ -813,7 +813,7 @@ public class OperaterActivity extends Activity implements AdapterView.OnItemClic
             VPOperateManager.getInstance().deleteAlarm2(writeResponse, new IAlarm2DataListListener() {
                 @Override
                 public void onAlarmDataChangeListListener(AlarmData2 alarmData2) {
-                    String message = "删除闹钟[新版]:\n" + alarmData2.toString();
+                    String message = "Delete alarm[New version]:\n" + alarmData2.toString();
                     Logger.t(TAG).i(message);
                     sendMsg(message, 1);
                 }
@@ -823,7 +823,7 @@ public class OperaterActivity extends Activity implements AdapterView.OnItemClic
             VPOperateManager.getInstance().setOnDeviceAlarm2ChangedListener(new OnDeviceAlarm2ChangedListener() {
                 @Override
                 public void onDeviceAlarm2Changed() {
-                    sendMsg("设备端闹钟状态改变了，请调用[readAlarm2更新闹钟列表]", 1);
+                    sendMsg("The device alarm status has changed, please call [readAlarm2 to update the alarm list]", 1);
                 }
             });
 
@@ -832,7 +832,7 @@ public class OperaterActivity extends Activity implements AdapterView.OnItemClic
             VPOperateManager.getInstance().addAlarm2(writeResponse, new IAlarm2DataListListener() {
                 @Override
                 public void onAlarmDataChangeListListener(AlarmData2 alarmData2) {
-                    String message = "添加闹钟[新版]:\n" + alarmData2.toString();
+                    String message = "Add alarm[New version]:\n" + alarmData2.toString();
                     Logger.t(TAG).i(message);
                     sendMsg(message, 1);
                 }
@@ -846,7 +846,7 @@ public class OperaterActivity extends Activity implements AdapterView.OnItemClic
             VPOperateManager.getInstance().modifyAlarm2(writeResponse, new IAlarm2DataListListener() {
                 @Override
                 public void onAlarmDataChangeListListener(AlarmData2 alarmData2) {
-                    String message = "修改闹钟[新版]:\n" + alarmData2.toString();
+                    String message = "修改闹钟[New version]:\n" + alarmData2.toString();
                     Logger.t(TAG).i(message);
                     sendMsg(message, 1);
                 }
@@ -1326,12 +1326,12 @@ public class OperaterActivity extends Activity implements AdapterView.OnItemClic
 //            /**电话,可以只传电话号码**/
 //            final ContentSetting contentphoneSetting0 = new ContentPhoneSetting(ESocailMsg.PHONE, "010-6635214");
 //            /**电话,传联系人姓名以及电话号码，最终显示的联系人姓名**/
-//            ContentSetting contentphoneSetting1 = new ContentPhoneSetting(ESocailMsg.PHONE, "测试头", "010-6635214");
+//            ContentSetting contentphoneSetting1 = new ContentPhoneSetting(ESocailMsg.PHONE, "test头", "010-6635214");
 //
 //            /**短信，可以只传电话号码**/
-//            ContentSetting contentsmsSetting2 = new ContentSmsSetting(ESocailMsg.SMS, "010-6635214", "测试反馈 SMS");
+//            ContentSetting contentsmsSetting2 = new ContentSmsSetting(ESocailMsg.SMS, "010-6635214", "test反馈 SMS");
 //            /**短信，传联系人姓名以及电话号码，最终显示的联系人姓名**/
-//            ContentSetting contentsmsSetting3 = new ContentSmsSetting(ESocailMsg.SMS, "测试头", "010-6635214", "测试反馈 SMS");
+//            ContentSetting contentsmsSetting3 = new ContentSmsSetting(ESocailMsg.SMS, "test头", "010-6635214", "test反馈 SMS");
 //
 //            /**第三方APP推送,发送前先通过密码验证获取FunctionSocailMsgData的状态**/
 //            ContentSetting contentsociaSetting4 = new ContentSocailSetting(ESocailMsg.SHIELD_POLICE, "警右", "坦白从宽，牢底坐穿，抗拒从严，回家过年");
@@ -1339,7 +1339,7 @@ public class OperaterActivity extends Activity implements AdapterView.OnItemClic
 //            mHandler.postDelayed(new Runnable() {
 //                @Override
 //                public void run() {
-//                    ContentSetting contentsociaSetting5 = new ContentSocailSetting(ESocailMsg.MESSENGER, "vepo", "测试反馈 MESSENGER");
+//                    ContentSetting contentsociaSetting5 = new ContentSocailSetting(ESocailMsg.MESSENGER, "vepo", "test反馈 MESSENGER");
 //                    VPOperateManager.getInstance().sendSocialMsgContent(writeResponse, contentsociaSetting5);
 //
 //                }
@@ -1347,14 +1347,14 @@ public class OperaterActivity extends Activity implements AdapterView.OnItemClic
 //            mHandler.postDelayed(new Runnable() {
 //                @Override
 //                public void run() {
-//                    ContentSetting contentsociaSetting6 = new ContentSocailSetting(ESocailMsg.PHONE, "vepo", "测试反馈 PHONE");
+//                    ContentSetting contentsociaSetting6 = new ContentSocailSetting(ESocailMsg.PHONE, "vepo", "test反馈 PHONE");
 //                    VPOperateManager.getInstance().sendSocialMsgContent(writeResponse, contentphoneSetting0);
 //                }
 //            }, 4000);
 //            mHandler.postDelayed(new Runnable() {
 //                @Override
 //                public void run() {
-//                    ContentSetting contentsociaSetting6 = new ContentSocailSetting(ESocailMsg.CONNECTED2_ME, "vepo", "测试反馈 CONNECTED2_ME");
+//                    ContentSetting contentsociaSetting6 = new ContentSocailSetting(ESocailMsg.CONNECTED2_ME, "vepo", "test反馈 CONNECTED2_ME");
 //                    VPOperateManager.getInstance().sendSocialMsgContent(writeResponse, contentsociaSetting6);
 //                }
 //            }, 6000);
@@ -1850,7 +1850,7 @@ public class OperaterActivity extends Activity implements AdapterView.OnItemClic
 
                 @Override
                 public void onReadOriginProgressDetail(int day, String date, int allPackage, int currentPackage) {
-                    String message = "健康数据[5分钟]-读取进度:currentPackage" + currentPackage + ",allPackage=" + allPackage + ",dates=" + date + ",day=" + day;
+                    String message = "Health data [5 minutes] - reading progress:currentPackage" + currentPackage + ",allPackage=" + allPackage + ",dates=" + date + ",day=" + day;
                     Logger.t(TAG).i(message);
                 }
 
@@ -1884,13 +1884,13 @@ public class OperaterActivity extends Activity implements AdapterView.OnItemClic
 
                 @Override
                 public void onOriginHalfHourDataChange(OriginHalfHourData originHalfHourDataList) {
-                    String message = "健康数据[30分钟]-返回:" + originHalfHourDataList.toString();
+                    String message = "Health data [30 minutes] - return:" + originHalfHourDataList.toString();
                     Logger.t(TAG).i(message);
-                    Logger.t(TAG).i("健康数据[30分钟]-返回:时间 = " + originHalfHourDataList.getDate());
-                    Logger.t(TAG).i("健康数据[30分钟]-返回:总步数 = " + originHalfHourDataList.getAllStep());
-                    Logger.t(TAG).i("健康数据[30分钟]-返回:30分钟的心率数据 size = " + originHalfHourDataList.getHalfHourRateDatas().size());
-                    Logger.t(TAG).i("健康数据[30分钟]-返回:30分钟的血压数据 size = " + originHalfHourDataList.getHalfHourBps().size());
-                    Logger.t(TAG).i("健康数据[30分钟]-返回:30分钟的运动数据 size = " + originHalfHourDataList.getHalfHourSportDatas().size());
+                    Logger.t(TAG).i("Health data [30 minutes] - return:时间 = " + originHalfHourDataList.getDate());
+                    Logger.t(TAG).i("Health data [30 minutes] - return:总步数 = " + originHalfHourDataList.getAllStep());
+                    Logger.t(TAG).i("Health data [30 minutes] - return:30分钟的心率数据 size = " + originHalfHourDataList.getHalfHourRateDatas().size());
+                    Logger.t(TAG).i("Health data [30 minutes] - return:30分钟的血压数据 size = " + originHalfHourDataList.getHalfHourBps().size());
+                    Logger.t(TAG).i("Health data [30 minutes] - return:30分钟的运动数据 size = " + originHalfHourDataList.getHalfHourSportDatas().size());
 
                     for (HalfHourSportData halfHourSportData : originHalfHourDataList.getHalfHourSportDatas()) {
                         Logger.t(TAG).i("健康数据[30分钟]-halfHourSportData = " + halfHourSportData.toString());
@@ -1910,20 +1910,20 @@ public class OperaterActivity extends Activity implements AdapterView.OnItemClic
 
                 @Override
                 public void onReadOriginProgress(float progress) {
-                    String message = "onReadOriginProgress 健康数据[5分钟]-读取进度:" + progress;
+                    String message = "onReadOriginProgress Health data [5 minutes] - reading progress:" + progress;
                     Logger.t(TAG).i(message);
                 }
 
                 @Override
                 public void onReadOriginProgressDetail(int day, String date, int allPackage, int currentPackage) {
-                    String message = "onReadOriginProgressDetail 健康数据[5分钟]-读取进度:currentPackage=" + currentPackage + ",allPackage=" + allPackage + ",dates=" + date + ",day=" + day;
+                    String message = "onReadOriginProgressDetail Health data [5 minutes] - reading progress:currentPackage=" + currentPackage + ",allPackage=" + allPackage + ",dates=" + date + ",day=" + day;
                     Logger.t(TAG).i(message);
                 }
 
 
                 @Override
                 public void onReadOriginComplete() {
-                    String message = "健康数据-读取结束";
+                    String message = "Health data - end of reading";
                     Logger.t(TAG).i(message);
                 }
             };
@@ -1937,32 +1937,32 @@ public class OperaterActivity extends Activity implements AdapterView.OnItemClic
             VPOperateManager.getInstance().readOriginDataFromDay(writeResponse, new IOriginDataListener() {
                 @Override
                 public void onOringinFiveMinuteDataChange(OriginData originData) {
-                    String message = "健康数据[5分钟]-返回:" + originData.toString();
+                    String message = "Health data [5 minutes] - Return:" + originData.toString();
                     Logger.t(TAG).i(message);
                 }
 
                 @Override
                 public void onOringinHalfHourDataChange(OriginHalfHourData originHalfHourData) {
-                    String message = "健康数据[30分钟]-返回:" + originHalfHourData.toString();
+                    String message = "Health data [30 minutes] - return:" + originHalfHourData.toString();
                     Logger.t(TAG).i(message);
                 }
 
                 @Override
                 public void onReadOriginProgress(float progress) {
-                    String message = "健康数据[5分钟]-读取进度:" + progress;
+                    String message = "Health data [5 minutes] - reading progress:" + progress;
                     Logger.t(TAG).i(message);
                 }
 
                 @Override
                 public void onReadOriginProgressDetail(int day, String date, int allPackage, int currentPackage) {
-                    String message = "健康数据[5分钟]-读取进度:currentPackage=" + currentPackage + ",allPackage=" + allPackage + ",dates=" + date + ",day=" + day;
+                    String message = "Health data [5 minutes] - reading progress:currentPackage=" + currentPackage + ",allPackage=" + allPackage + ",dates=" + date + ",day=" + day;
                     Logger.t(TAG).i(message);
                 }
 
 
                 @Override
                 public void onReadOriginComplete() {
-                    String message = "健康数据-读取结束";
+                    String message = "Health data - end of reading";
                     Logger.t(TAG).i(message);
                 }
             }, yesterday, 10, watchDataDay);
@@ -1972,40 +1972,40 @@ public class OperaterActivity extends Activity implements AdapterView.OnItemClic
             IOriginProgressListener originDataListener = new IOriginDataListener() {
                 @Override
                 public void onOringinFiveMinuteDataChange(OriginData originData) {
-                    String message = "健康数据[5分钟]-返回:" + originData.toString();
+                    String message = "Health data [5 minutes] - Return:" + originData.toString();
                     Logger.t(TAG).i(message);
                 }
 
                 @Override
                 public void onOringinHalfHourDataChange(OriginHalfHourData originHalfHourData) {
-                    String message = "健康数据[30分钟]-返回:" + originHalfHourData.toString();
+                    String message = "Health data [30 minutes] - return:" + originHalfHourData.toString();
                     Logger.t(TAG).i(message);
                 }
 
                 @Override
                 public void onReadOriginProgress(float progress) {
-                    String message = "健康数据[5分钟]-读取进度:" + progress;
+                    String message = "Health data [5 minutes] - reading progress:" + progress;
                     Logger.t(TAG).i(message);
                 }
 
 
                 @Override
                 public void onReadOriginProgressDetail(int day, String date, int allPackage, int currentPackage) {
-                    String message = "健康数据[5分钟]-读取进度:currentPackage=" + currentPackage + ",allPackage=" + allPackage + ",dates=" + date + ",day=" + day;
+                    String message = "Health data [5 minutes] - reading progress :currentPackage=" + currentPackage + ",allPackage=" + allPackage + ",dates=" + date + ",day=" + day;
                     Logger.t(TAG).i(message);
                 }
 
 
                 @Override
                 public void onReadOriginComplete() {
-                    String message = "健康数据-读取结束";
+                    String message = "Health data - end of reading";
                     Logger.t(TAG).i(message);
                 }
             };
             IOriginProgressListener originData3Listener = new IOriginData3Listener() {
                 @Override
                 public void onOriginFiveMinuteListDataChange(List<OriginData3> originData3List) {
-                    String message = "健康数据[5分钟]-返回:" + originData3List.size();
+                    String message = "Health data [5 minutes] - Return:" + originData3List.size();
                     for (int i = 0; i < originData3List.size(); i++) {
                         String s = originData3List.get(i).toString();
                         Logger.t(TAG).i(s);
@@ -2015,14 +2015,14 @@ public class OperaterActivity extends Activity implements AdapterView.OnItemClic
 
                 @Override
                 public void onOriginHalfHourDataChange(OriginHalfHourData originHalfHourData) {
-                    String message = "健康数据[30分钟]-返回:" + originHalfHourData.toString();
+                    String message = "Health data [30 minutes] - return:" + originHalfHourData.toString();
                     Logger.t(TAG).i(message);
 
                 }
 
                 @Override
                 public void onOriginHRVOriginListDataChange(List<HRVOriginData> originHrvDataList) {
-                    String message = "健康数据[HRV]-返回:" + originHrvDataList.size();
+                    String message = "Health Data [HRV] - Return:" + originHrvDataList.size();
 //                    for (int i = 0; i < originHrvDataList.size(); i++) {
 //                        String s = originHrvDataList.get(i).toString();
 //                        Logger.t(TAG).i(s);
@@ -2032,7 +2032,7 @@ public class OperaterActivity extends Activity implements AdapterView.OnItemClic
 
                 @Override
                 public void onOriginSpo2OriginListDataChange(List<Spo2hOriginData> originSpo2hDataList) {
-                    String message = "健康数据[Spo2h]-返回:" + originSpo2hDataList.size();
+                    String message = "Health Data [Spo2h] - Returns:" + originSpo2hDataList.size();
                     Spo2hOriginUtil spo2hOriginUtil = new Spo2hOriginUtil(originSpo2hDataList);
                     for (int i = 0; i < originSpo2hDataList.size(); i++) {
                         String s = originSpo2hDataList.get(i).toString();
@@ -2046,19 +2046,19 @@ public class OperaterActivity extends Activity implements AdapterView.OnItemClic
 
                 @Override
                 public void onReadOriginProgressDetail(int day, String date, int allPackage, int currentPackage) {
-                    String message = "健康数据[5分钟]-读取进度:currentPackage=" + currentPackage + ",allPackage=" + allPackage + ",dates=" + date + ",day=" + day;
+                    String message = "Health data [5 minutes] - reading progress:currentPackage=" + currentPackage + ",allPackage=" + allPackage + ",dates=" + date + ",day=" + day;
                     Logger.t(TAG).i(message);
                 }
 
                 @Override
                 public void onReadOriginProgress(float progress) {
-                    String message = "健康数据[5分钟]-读取进度:" + progress;
+                    String message = "Health data [5 minutes] - reading progress:" + progress;
                     Logger.t(TAG).i(message);
                 }
 
                 @Override
                 public void onReadOriginComplete() {
-                    String message = "健康数据-读取结束";
+                    String message = "Health data - end of reading";
                     Logger.t(TAG).i(message);
                 }
             };
@@ -2110,7 +2110,7 @@ public class OperaterActivity extends Activity implements AdapterView.OnItemClic
             }, watchDataDay);
         } else if (oprater.equals(OAD)) {
             if (deviceNumber < 0) {
-                Toast.makeText(mContext, "请先通过密码验证，获取版本号!", Toast.LENGTH_LONG).show();
+                Toast.makeText(mContext, "Please pass password verification first to obtain version number!", Toast.LENGTH_LONG).show();
                 return;
             }
             boolean isOadModel = getIntent().getBooleanExtra("isoadmodel", false);
@@ -2144,13 +2144,13 @@ public class OperaterActivity extends Activity implements AdapterView.OnItemClic
             VPOperateManager.getInstance().readSportModelState(writeResponse, new ISportModelStateListener() {
                 @Override
                 public void onSportModelStateChange(SportModelStateData sportModelStateData) {
-                    String message = "运动模式状态" + sportModelStateData.toString();
+                    String message = "Sport mode status" + sportModelStateData.toString();
                     Logger.t(TAG).i(message);
                 }
 
                 @Override
                 public void onSportStopped() {
-                    Logger.t(TAG).i(SPORT_MODE_ORIGIN_READSTAUTS + "================================运动结束 @_@");
+                    Logger.t(TAG).i(SPORT_MODE_ORIGIN_READSTAUTS + "================================End of exercise @_@");
                 }
             });
         } else if (oprater.equals(SPORT_MODE_START_INDOOR)) {
@@ -2325,8 +2325,8 @@ public class OperaterActivity extends Activity implements AdapterView.OnItemClic
             VPOperateManager.getInstance().addTextAlarm(writeResponse, new ITextAlarmDataListener() {
                 @Override
                 public void onAlarmDataChangeListListener(TextAlarmData textAlarmData) {
-                    Logger.t(TAG).e("添加闹钟 --》" + textAlarmData.toString());
-                    showToast("添加闹钟 --》" + (textAlarmData.getOprate() == EMultiAlarmOprate.SETTING_SUCCESS ? ("成功,一共" + textAlarmData.getTextAlarm2SettingList().size() + "条=>" + textAlarmData.toString()) : "失败"));
+                    Logger.t(TAG).e("Add alarm --》" + textAlarmData.toString());
+                    showToast("Add alarm --》" + (textAlarmData.getOprate() == EMultiAlarmOprate.SETTING_SUCCESS ? ("成功,一共" + textAlarmData.getTextAlarm2SettingList().size() + "条=>" + textAlarmData.toString()) : "失败"));
                 }
             }, setting);
         } else if (oprater.equals(TEXT_ALARM_MODIFY)) {
@@ -2334,7 +2334,7 @@ public class OperaterActivity extends Activity implements AdapterView.OnItemClic
             int flag = random.nextInt(100);
             List<TextAlarm2Setting> settings = VPOperateManager.getInstance().getTextAlarmList();
             if (settings == null || settings.size() == 0) {
-                showToast("闹钟列表为空，请先添加闹钟或，读取更新闹钟列表");
+                showToast("闹钟列表为空，请先Add alarm或，读取更新闹钟列表");
                 return;
             }
             final TextAlarm2Setting setting = settings.get(0);
@@ -2359,8 +2359,8 @@ public class OperaterActivity extends Activity implements AdapterView.OnItemClic
                 VPOperateManager.getInstance().deleteTextAlarm(writeResponse, new ITextAlarmDataListener() {
                     @Override
                     public void onAlarmDataChangeListListener(TextAlarmData textAlarmData) {
-                        Logger.t(TAG).e("删除闹钟 --》" + textAlarmData.toString());
-                        showToast("删除闹钟 --》" + (textAlarmData.getOprate() == EMultiAlarmOprate.CLEAR_SUCCESS ? "成功:" + setting.toString() : "失败"));
+                        Logger.t(TAG).e("Delete alarm --》" + textAlarmData.toString());
+                        showToast("Delete alarm --》" + (textAlarmData.getOprate() == EMultiAlarmOprate.CLEAR_SUCCESS ? "成功:" + setting.toString() : "失败"));
                     }
                 }, setting);
             } else {
@@ -3486,7 +3486,7 @@ public class OperaterActivity extends Activity implements AdapterView.OnItemClic
 
             @Override
             public void onReadOriginProgressDetail(int day, String date, int allPackage, int currentPackage) {
-                String message = "健康数据[5分钟]-读取进度:currentPackage" + currentPackage + ",allPackage=" + allPackage + ",dates=" + date + ",day=" + day;
+                String message = "Health data [5 minutes] - reading progress:currentPackage" + currentPackage + ",allPackage=" + allPackage + ",dates=" + date + ",day=" + day;
                 Logger.t(TAG).i(message);
             }
 
@@ -3519,11 +3519,11 @@ public class OperaterActivity extends Activity implements AdapterView.OnItemClic
 
             @Override
             public void onOriginHalfHourDataChange(OriginHalfHourData originHalfHourDataList) {
-                String message = "健康数据[30分钟]-返回:" + originHalfHourDataList.toString();
+                String message = "Health data [30 minutes] - return:" + originHalfHourDataList.toString();
                 Logger.t(TAG).i(message);
-                Logger.t(TAG).i("健康数据[30分钟]-返回:30分钟的心率数据 size = " + originHalfHourDataList.getHalfHourRateDatas().size());
-                Logger.t(TAG).i("健康数据[30分钟]-返回:30分钟的血压数据 size = " + originHalfHourDataList.getHalfHourBps().size());
-                Logger.t(TAG).i("健康数据[30分钟]-返回:30分钟的运动数据 size = " + originHalfHourDataList.getHalfHourSportDatas().size());
+                Logger.t(TAG).i("Health data [30 minutes] - return:30分钟的心率数据 size = " + originHalfHourDataList.getHalfHourRateDatas().size());
+                Logger.t(TAG).i("Health data [30 minutes] - return:30分钟的血压数据 size = " + originHalfHourDataList.getHalfHourBps().size());
+                Logger.t(TAG).i("Health data [30 minutes] - return:30分钟的运动数据 size = " + originHalfHourDataList.getHalfHourSportDatas().size());
             }
 
             @Override
@@ -3539,20 +3539,20 @@ public class OperaterActivity extends Activity implements AdapterView.OnItemClic
 
             @Override
             public void onReadOriginProgress(float progress) {
-                String message = "onReadOriginProgress 健康数据[5分钟]-读取进度:" + progress;
+                String message = "onReadOriginProgress Health data [5 minutes] - reading progress:" + progress;
                 Logger.t(TAG).i(message);
             }
 
             @Override
             public void onReadOriginProgressDetail(int day, String date, int allPackage, int currentPackage) {
-                String message = "onReadOriginProgressDetail 健康数据[5分钟]-读取进度:currentPackage=" + currentPackage + ",allPackage=" + allPackage + ",dates=" + date + ",day=" + day;
+                String message = "onReadOriginProgressDetail Health data [5 minutes] - reading progress:currentPackage=" + currentPackage + ",allPackage=" + allPackage + ",dates=" + date + ",day=" + day;
                 Logger.t(TAG).i(message);
             }
 
 
             @Override
             public void onReadOriginComplete() {
-                String message = "健康数据-读取结束";
+                String message = "Health data - end of reading";
                 Logger.t(TAG).i(message);
             }
         };
