@@ -673,7 +673,7 @@ public class OperaterActivity extends Activity implements AdapterView.OnItemClic
                 }
             }, bpSetting);
         } else if (oprater.equals(PWD_COMFIRM)) {
-            boolean is24Hourmodel = false;
+            boolean is24Hourmodel = true;
             VPOperateManager.getInstance().confirmDevicePwd(writeResponse, new IPwdDataListener() {
                 @Override
                 public void onPwdDataChange(PwdData pwdData) {
